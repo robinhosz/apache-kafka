@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class StringProducerService {
-
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendMessage(String messsage) {
-        kafkaTemplate.send("str-topic", messsage).addCallback(
+        log.info("Send message {}", messsage);
+        kafkaTemplate.send("str-topic", messsage);/*.addCallback(
                 sucess -> {
                     if(sucess != null) {
                         log.info("Send message with sucess {}", messsage);
@@ -22,6 +22,6 @@ public class StringProducerService {
                     }
                 },
                 error -> log.error("Error send message")
-        );
+        );*/
     }
 }
