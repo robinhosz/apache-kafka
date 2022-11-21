@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class StrConsumerListener {
 
     @SneakyThrows
-    @StrConsumerCustomListener(groupId = "group-1")
+    @StrConsumerCustomListener(groupId = "group-1") //Caso eu queira utilizar uma partition especifica -> topicPartition(topic = "str-topic", partitions = {0});
     public void create(String message) {
         log.info("CREATE ::: Receive message {}", message);
         throw new IllegalArgumentException("EXCEPTION");

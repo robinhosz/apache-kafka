@@ -49,6 +49,7 @@ public class StringConsumerConfig {
         return factory;
     }
 
+    //Serve para fazer um processamento antes que o listener consuma o registro. ( Vai depender da regra de negocio )
     private RecordInterceptor<String, String> validMessage() {
         return record -> {
             if(record.value().contains("Teste")) {
